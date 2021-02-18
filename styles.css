@@ -21,8 +21,8 @@ a:hover {
 .btn:focus,
 .btn:active,
 .btn:visited {
-    outline: none !important;
-    box-shadow: none !important;
+    outline: none;
+    box-shadow: none;
     background-color: #343a40;
 }
 
