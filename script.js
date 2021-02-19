@@ -1,17 +1,17 @@
 // Define a set of questions
 const questions = [{
-        question: "Commonly used data types DO NOT include:",
-        choices: ["a. <Strings>", "b. <Booleans>", "c. <Alerts>", "d. <Numbers>"],
-        answer: "c. <Alerts>"
+        question: "Inside which HTML element do we put the JavaScript?",
+        choices: ["a. <js>", "b. <javascript>", "c. <scripting>", "d. <script>"],
+        answer: "d. <script>"
     },
     {
         question: "String values must be enclosed within _____ when being assigned to variables.",
-        choices: ["a. commas", "b. curly brackets", "c. quotes", "d. parenthesis"],
+        choices: ["a. commas", "b. curly brackets", "c. quotes", "d. hash tags"],
         answer: "c. quotes"
     },
     {
         question: "Arrays in JavaScript can be used to store _____.",
-        choices: ["a. numbers and strings", "b. other arrays", "c. booleans", "d. all of the above"],
+        choices: ["a. numbers and strings", "b. other arrays", "c. booleans", "d. tags"],
         answer: "b. other arrays"
     },
     {
@@ -21,13 +21,13 @@ const questions = [{
     },
     {
         question: "How do you create a function in JavaScript",
-        choices: ["a. function = myFunction()", "b. function myFunction()", "c. function:myFunction()", "d. createMyFunction()"],
+        choices: ["a. function = my()", "b. function myFunction()", "c. function:myFunction()", "d. createMyFunction()"],
         answer: "b. function myFunction()"
     },
     {
-        question: "Where is the correct place to insert a JavaScript",
-        choices: ["a. The<title> section", "b. The<head> section", "c. Both the <head> section and the <body> section are correct", "d. The<body> section"],
-        answer: "c. Both the <head> section and the <body> section are correct"
+        question: "JavaScript can be used in both Front End or Back End?",
+        choices: ["a. front end", "b. back end", "c. both/including NodeJS", "d. neither"],
+        answer: "c. both/including NodeJS"
     },
     {
         question: "To see if two variables are equal in an if / else statement you would use ____.",
@@ -41,7 +41,7 @@ const questions = [{
     },
     {
         question: "Who invented JavaScript?",
-        choices: ["a. Bill Gates", "b. Michael Jordan", "c. Brendan Eich", "d. Ben Javascript"],
+        choices: ["a. Mike Anthony", "b. Sheryl Sandberg", "c. Brendan Eich", "d. Ben Javascript"],
         answer: "c. Brendan Eich"
     },
     {
@@ -61,7 +61,7 @@ const questions = [{
     }
 ];
 
-// Grab references to elements
+// grab references to elements
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
 var timesUp = document.getElementById("timesUp");
@@ -90,15 +90,15 @@ var clearHighScoreBtn = document.getElementById("clearHighScoreBtn");
 var viewHighScore = document.getElementById("viewHighScore");
 var listOfHighScores = document.getElementById("listOfHighScores");
 
-// Define other variables
+// define other variables
 var correctAns = 0;
 var questionNum = 0;
 var scoreResult;
 var questionIndex = 0;
 
-// Functions
+//FUNCTIONS
 
-// When clicking the start button, the timer starts
+// WHEN I click the start button, timer starts
 var totalTime = 151;
 
 function newQuiz() {
@@ -129,7 +129,7 @@ function newQuiz() {
 // console.log(questions[questionIndex].question);
 // console.log(questions[questionIndex].choices);
 
-// Then presented with questions and choices
+// then presented with questions and choices
 function showQuiz() {
     nextQuestion();
 }
@@ -142,7 +142,7 @@ function nextQuestion() {
     choiceD.textContent = questions[questionIndex].choices[3];
 }
 
-// After question is answered, show if it's correct or wrong
+// after question is answered, show if correct or wrong
 function checkAnswer(answer) {
 
     var lineBreak = document.getElementById("lineBreak");
@@ -179,7 +179,8 @@ function chooseC() { checkAnswer(2); }
 
 function chooseD() { checkAnswer(3); }
 
-// When all the questions are answered or timer reaches 0, game over
+// When all questions are answered or timer reaches 0, game over
+
 function gameOver() {
     summary.style.display = "block";
     questionDiv.style.display = "none";
@@ -187,15 +188,18 @@ function gameOver() {
     timer.style.display = "none";
     timesUp.style.display = "block";
 
-    // show final score
+    // Show final score
+
     finalScore.textContent = correctAns;
 }
 
 // Enter initial and store highscore in local storage
+
 function storeHighScores(event) {
     event.preventDefault();
 
-    // stop function is initial is blank
+    // Stop function is initial is blank
+
     if (initialInput.value === "") {
         alert("Please enter your initials!");
         return;
@@ -207,7 +211,8 @@ function storeHighScores(event) {
     summary.style.display = "none";
     highScoreSection.style.display = "block";
 
-    // store scores into local storage
+    // Store scores into local storage
+
     var savedHighScores = localStorage.getItem("high scores");
     var scoresArray;
 
@@ -225,15 +230,18 @@ function storeHighScores(event) {
     console.log(userScore);
     scoresArray.push(userScore);
 
-    // stringify array in order to store in local
+    // Stringify array in order to store in local
+
     var scoresArrayString = JSON.stringify(scoresArray);
     window.localStorage.setItem("high scores", scoresArrayString);
 
-    // show current highscores
+    //Show current highscores
+
     showHighScores();
 }
 
 // Function to show high scores
+
 var i = 0;
 
 function showHighScores() {
@@ -262,7 +270,8 @@ function showHighScores() {
     }
 }
 
-// Adding event listeners
+// Add Event Listener
+
 startQuizBtn.addEventListener("click", newQuiz);
 choiceA.addEventListener("click", chooseA);
 choiceB.addEventListener("click", chooseB);
