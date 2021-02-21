@@ -6,4 +6,3 @@ https://alan-schultz.github.io/Code-Quiz/
 https://github.com/Alan-Schultz/Code-Quiz.git
 
 
-<img src="snippet.jpg" alt="photo of code-quiz">
